@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>SDLC Pipeline</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4f46e5 100%);
+    font-family: -apple-system, 'Inter', BlinkMacSystemFont, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    user-select: none;
+    -webkit-app-region: drag;
+  }
+
+  /* Animated background orbs */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.25;
+    animation: float 8s ease-in-out infinite;
+  }
+  .orb-1 { width:260px; height:260px; background:#6366f1; top:-60px; right:-40px; animation-delay:0s; }
+  .orb-2 { width:200px; height:200px; background:#06b6d4; bottom:-50px; left:-30px; animation-delay:3s; }
+  @keyframes float {
+    0%,100% { transform: translate(0,0) scale(1); }
+    50%      { transform: translate(20px,-20px) scale(1.05); }
+  }
+
+  .content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  /* Rocket icon */
+  .icon-wrap {
+    width: 88px;
+    height: 88px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 32px rgba(99,102,241,0.4);
+    animation: pulse-icon 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse-icon {
+    0%,100% { box-shadow: 0 8px 32px rgba(99,102,241,0.4); transform: scale(1); }
+    50%      { box-shadow: 0 8px 48px rgba(99,102,241,0.65); transform: scale(1.04); }
+  }
+
+  .title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.4px;
+  }
+  .subtitle {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.4px;
+    margin-top: -12px;
+  }
+
+  /* Agent pipeline dots */
+  .pipeline {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 4px;
+  }
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    animation: dot-wave 1.6s ease-in-out infinite;
+  }
+  .connector { width: 14px; height: 2px; background: rgba(255,255,255,0.15); border-radius:1px; }
+  .dot:nth-child(1)  { animation-delay: 0.0s; }
+  .dot:nth-child(3)  { animation-delay: 0.15s; }
+  .dot:nth-child(5)  { animation-delay: 0.3s; }
+  .dot:nth-child(7)  { animation-delay: 0.45s; }
+  .dot:nth-child(9)  { animation-delay: 0.6s; }
+  .dot:nth-child(11) { animation-delay: 0.75s; }
+  @keyframes dot-wave {
+    0%,60%,100% { background: rgba(255,255,255,0.20); transform: scale(1); }
+    30%         { background: #06b6d4; transform: scale(1.5); box-shadow: 0 0 8px #06b6d4; }
+  }
+
+  /* Loading bar */
+  .bar-wrap {
+    width: 280px;
+    height: 4px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 4px;
+  }
+  .bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #6366f1, #06b6d4);
+    border-radius: 4px;
+    animation: loading 2.5s ease-in-out infinite;
+  }
+  @keyframes loading {
+    0%   { width: 0%;   margin-left: 0%; }
+    50%  { width: 60%;  margin-left: 20%; }
+    100% { width: 0%;   margin-left: 100%; }
+  }
+
+  /* Status text */
+  .status {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.3px;
+    min-height: 16px;
+    text-align: center;
+    max-width: 320px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .version {
+    position: absolute;
+    bottom: 16px;
+    font-size: 10px;
+    color: rgba(255,255,255,0.2);
+  }
+</style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <div class="content">
+    <div class="icon-wrap">🚀</div>
+
+    <div>
+      <div class="title">SDLC Pipeline</div>
+      <div class="subtitle">Multi-Agent · Claude AI</div>
+    </div>
+
+    <div class="pipeline">
+      <div class="dot"></div><div class="connector"></div>
+      <div class="dot"></div><div class="connector"></div>
+      <div class="dot"></div><div class="connector"></div>
+      <div class="dot"></div><div class="connector"></div>
+      <div class="dot"></div><div class="connector"></div>
+      <div class="dot"></div>
+    </div>
+
+    <div class="bar-wrap"><div class="bar-fill"></div></div>
+
+    <div class="status" id="status">Starting pipeline server…</div>
+  </div>
+
+  <div class="version" id="version">v1.0.0</div>
+
+  <script>
+    // Show live Streamlit boot log lines
+    if (window.sdlcApp) {
+      window.sdlcApp.getVersion().then(v => {
+        document.getElementById('version').textContent = 'v' + v;
+      });
+      window.sdlcApp.onStreamlitLog(line => {
+        const el = document.getElementById('status');
+        // Show only meaningful lines
+        const clean = line.replace(/\x1b\[[0-9;]*m/g, '').trim();
+        if (clean && clean.length < 80) el.textContent = clean;
+      });
+    }
+  </script>
+</body>
+</html>

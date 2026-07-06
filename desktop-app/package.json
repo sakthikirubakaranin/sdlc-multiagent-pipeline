@@ -1,0 +1,80 @@
+{
+  "name": "sdlc-pipeline",
+  "productName": "SDLC Pipeline",
+  "version": "1.0.0",
+  "description": "Multi-Agent SDLC Pipeline — powered by Claude AI",
+  "main": "src/main.js",
+  "author": {
+    "name": "SDLC Pipeline",
+    "email": "sdlc@pipeline.local"
+  },
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dev":   "NODE_ENV=development electron .",
+    "build": "electron-builder --mac dmg",
+    "build:dir": "electron-builder --mac dir",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "find-free-port": "^2.0.0"
+  },
+  "devDependencies": {
+    "electron": "^29.0.0",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "com.sdlc.pipeline",
+    "productName": "SDLC Pipeline",
+    "copyright": "Copyright © 2026 SDLC Pipeline",
+    "icon": "assets/icons/icon_512x512.png",
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "icon": "assets/icons/icon.icns",
+      "hardenedRuntime": false,
+      "gatekeeperAssess": false,
+      "target": [
+        {
+          "target": "dmg",
+          "arch": ["x64", "arm64"]
+        }
+      ]
+    },
+    "dmg": {
+      "title": "SDLC Pipeline",
+      "icon": "assets/icons/icon_512x512.png",
+      "iconSize": 100,
+      "background": "assets/dmg-background.png",
+      "window": {
+        "width": 600,
+        "height": 400
+      },
+      "contents": [
+        { "x": 180, "y": 180, "type": "file" },
+        { "x": 420, "y": 180, "type": "link", "path": "/Applications" }
+      ]
+    },
+    "extraResources": [
+      {
+        "from": "../",
+        "to": "app",
+        "filter": [
+          "**/*",
+          "!desktop-app/**",
+          "!outputs/**",
+          "!**/__pycache__/**",
+          "!**/*.pyc",
+          "!.git/**",
+          "!node_modules/**",
+          "!*.credentials.json"
+        ]
+      }
+    ],
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "node_modules/**/*"
+    ]
+  }
+}

@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <!-- Background gradient: deep indigo to violet -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#1e1b4b"/>
+      <stop offset="50%"  stop-color="#312e81"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
+    </linearGradient>
+    <!-- Rocket body gradient -->
+    <linearGradient id="rocketGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#e0e7ff"/>
+      <stop offset="100%" stop-color="#a5b4fc"/>
+    </linearGradient>
+    <!-- Flame gradient -->
+    <linearGradient id="flameGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#fbbf24"/>
+      <stop offset="50%"  stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
+    </linearGradient>
+    <!-- Cyan accent glow -->
+    <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"  stop-color="#06b6d4" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Circuit trace colour -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Rounded-rect background -->
+  <rect width="1024" height="1024" rx="220" ry="220" fill="url(#bgGrad)"/>
+
+  <!-- Subtle radial glow behind rocket -->
+  <ellipse cx="512" cy="480" rx="340" ry="300" fill="url(#glowGrad)"/>
+
+  <!-- ── Circuit board traces (bottom-left quadrant) ── -->
+  <g stroke="#6366f1" stroke-width="6" fill="none" opacity="0.55">
+    <!-- Horizontal traces -->
+    <line x1="100" y1="720" x2="300" y2="720"/>
+    <line x1="100" y1="780" x2="260" y2="780"/>
+    <line x1="100" y1="840" x2="220" y2="840"/>
+    <line x1="130" y1="660" x2="280" y2="660"/>
+    <!-- Vertical traces -->
+    <line x1="140" y1="600" x2="140" y2="720"/>
+    <line x1="200" y1="660" x2="200" y2="840"/>
+    <line x1="260" y1="720" x2="260" y2="780"/>
+    <line x1="300" y1="660" x2="300" y2="720"/>
+    <!-- Corner connectors -->
+    <line x1="300" y1="720" x2="340" y2="720"/>
+    <line x1="280" y1="660" x2="280" y2="620"/>
+  </g>
+  <!-- Circuit nodes (left) -->
+  <g fill="#818cf8" opacity="0.7">
+    <circle cx="140" cy="720" r="9"/>
+    <circle cx="200" cy="780" r="9"/>
+    <circle cx="260" cy="780" r="9"/>
+    <circle cx="200" cy="660" r="9"/>
+    <circle cx="300" cy="720" r="9"/>
+    <circle cx="140" cy="600" r="7"/>
+    <circle cx="280" cy="620" r="7"/>
+  </g>
+
+  <!-- ── Circuit board traces (bottom-right quadrant) ── -->
+  <g stroke="#06b6d4" stroke-width="6" fill="none" opacity="0.45">
+    <line x1="724" y1="720" x2="924" y2="720"/>
+    <line x1="764" y1="780" x2="924" y2="780"/>
+    <line x1="804" y1="840" x2="924" y2="840"/>
+    <line x1="744" y1="660" x2="894" y2="660"/>
+    <line x1="884" y1="600" x2="884" y2="720"/>
+    <line x1="824" y1="660" x2="824" y2="840"/>
+    <line x1="764" y1="720" x2="764" y2="780"/>
+    <line x1="724" y1="660" x2="724" y2="720"/>
+    <line x1="684" y1="720" x2="724" y2="720"/>
+    <line x1="744" y1="660" x2="744" y2="620"/>
+  </g>
+  <!-- Circuit nodes (right) -->
+  <g fill="#22d3ee" opacity="0.65">
+    <circle cx="884" cy="720" r="9"/>
+    <circle cx="824" cy="780" r="9"/>
+    <circle cx="764" cy="780" r="9"/>
+    <circle cx="824" cy="660" r="9"/>
+    <circle cx="724" cy="720" r="9"/>
+    <circle cx="884" cy="600" r="7"/>
+    <circle cx="744" cy="620" r="7"/>
+  </g>
+
+  <!-- ── Small chip (bottom-left) ── -->
+  <g opacity="0.6">
+    <rect x="108" y="748" width="64" height="64" rx="8" fill="none" stroke="#818cf8" stroke-width="5"/>
+    <line x1="124" y1="748" x2="124" y2="736" stroke="#818cf8" stroke-width="4"/>
+    <line x1="140" y1="748" x2="140" y2="736" stroke="#818cf8" stroke-width="4"/>
+    <line x1="156" y1="748" x2="156" y2="736" stroke="#818cf8" stroke-width="4"/>
+    <line x1="124" y1="812" x2="124" y2="824" stroke="#818cf8" stroke-width="4"/>
+    <line x1="140" y1="812" x2="140" y2="824" stroke="#818cf8" stroke-width="4"/>
+    <line x1="156" y1="812" x2="156" y2="824" stroke="#818cf8" stroke-width="4"/>
+    <line x1="108" y1="764" x2="96"  y2="764" stroke="#818cf8" stroke-width="4"/>
+    <line x1="108" y1="780" x2="96"  y2="780" stroke="#818cf8" stroke-width="4"/>
+    <line x1="172" y1="764" x2="184" y2="764" stroke="#818cf8" stroke-width="4"/>
+    <line x1="172" y1="780" x2="184" y2="780" stroke="#818cf8" stroke-width="4"/>
+    <rect x="122" y="762" width="36" height="24" rx="3" fill="#312e81"/>
+  </g>
+
+  <!-- ── Small chip (bottom-right) ── -->
+  <g opacity="0.6">
+    <rect x="852" y="748" width="64" height="64" rx="8" fill="none" stroke="#22d3ee" stroke-width="5"/>
+    <line x1="868" y1="748" x2="868" y2="736" stroke="#22d3ee" stroke-width="4"/>
+    <line x1="884" y1="748" x2="884" y2="736" stroke="#22d3ee" stroke-width="4"/>
+    <line x1="900" y1="748" x2="900" y2="736" stroke="#22d3ee" stroke-width="4"/>
+    <line x1="868" y1="812" x2="868" y2="824" stroke="#22d3ee" stroke-width="4"/>
+    <line x1="884" y1="812" x2="884" y2="824" stroke="#22d3ee" stroke-width="4"/>
+    <line x1="900" y1="812" x2="900" y2="824" stroke="#22d3ee" stroke-width="4"/>
+    <line x1="852" y1="764" x2="840" y2="764" stroke="#22d3ee" stroke-width="4"/>
+    <line x1="852" y1="780" x2="840" y2="780" stroke="#22d3ee" stroke-width="4"/>
+    <line x1="916" y1="764" x2="928" y2="764" stroke="#22d3ee" stroke-width="4"/>
+    <line x1="916" y1="780" x2="928" y2="780" stroke="#22d3ee" stroke-width="4"/>
+    <rect x="866" y="762" width="36" height="24" rx="3" fill="#164e63"/>
+  </g>
+
+  <!-- ── Rocket flame ── -->
+  <ellipse cx="512" cy="798" rx="52" ry="90" fill="url(#flameGrad)" opacity="0.92"/>
+  <ellipse cx="512" cy="810" rx="28" ry="55" fill="#fde68a" opacity="0.7"/>
+
+  <!-- ── Rocket body ── -->
+  <!-- Main fuselage -->
+  <path d="M 512 180
+             C 512 180, 622 320, 622 530
+             L 622 680
+             Q 622 710 590 710
+             L 434 710
+             Q 402 710 402 680
+             L 402 530
+             C 402 320, 512 180, 512 180 Z"
+        fill="url(#rocketGrad)"/>
+
+  <!-- Nose cone highlight -->
+  <path d="M 512 180 C 512 180, 565 290, 580 430 L 512 430 Z"
+        fill="white" opacity="0.18"/>
+
+  <!-- Window -->
+  <circle cx="512" cy="460" r="58" fill="#1e1b4b" stroke="#a5b4fc" stroke-width="8"/>
+  <circle cx="512" cy="460" r="44" fill="#312e81"/>
+  <!-- Window inner glow -->
+  <circle cx="512" cy="460" r="36" fill="none" stroke="#06b6d4" stroke-width="3" opacity="0.8"/>
+  <circle cx="497" cy="448" r="10" fill="white" opacity="0.25"/>
+
+  <!-- Left fin -->
+  <path d="M 402 620 L 300 720 L 380 710 L 402 670 Z"
+        fill="#6366f1"/>
+  <path d="M 402 620 L 360 640 L 370 680 L 402 670 Z"
+        fill="#818cf8" opacity="0.5"/>
+
+  <!-- Right fin -->
+  <path d="M 622 620 L 724 720 L 644 710 L 622 670 Z"
+        fill="#6366f1"/>
+  <path d="M 622 620 L 664 640 L 654 680 L 622 670 Z"
+        fill="#818cf8" opacity="0.5"/>
+
+  <!-- ── Agent dots (pipeline nodes) ── -->
+  <!-- Row of 5 small glowing dots representing agents -->
+  <g filter="url(#glow)">
+    <circle cx="362" cy="370" r="10" fill="#06b6d4" opacity="0.9"/>
+    <circle cx="404" cy="300" r="10" fill="#818cf8" opacity="0.9"/>
+    <circle cx="620" cy="300" r="10" fill="#818cf8" opacity="0.9"/>
+    <circle cx="662" cy="370" r="10" fill="#06b6d4" opacity="0.9"/>
+    <!-- connecting lines -->
+    <line x1="362" y1="370" x2="404" y2="300" stroke="#06b6d4" stroke-width="2.5" opacity="0.5"/>
+    <line x1="404" y1="300" x2="620" y2="300" stroke="#818cf8" stroke-width="2.5" opacity="0.4" stroke-dasharray="8,5"/>
+    <line x1="620" y1="300" x2="662" y2="370" stroke="#06b6d4" stroke-width="2.5" opacity="0.5"/>
+  </g>
+
+  <!-- ── Stars ── -->
+  <g fill="white" opacity="0.6">
+    <circle cx="160" cy="180" r="3"/>
+    <circle cx="240" cy="120" r="2"/>
+    <circle cx="320" cy="200" r="2.5"/>
+    <circle cx="180" cy="300" r="2"/>
+    <circle cx="860" cy="180" r="3"/>
+    <circle cx="780" cy="120" r="2"/>
+    <circle cx="700" cy="200" r="2.5"/>
+    <circle cx="840" cy="300" r="2"/>
+    <circle cx="120" cy="440" r="2"/>
+    <circle cx="900" cy="440" r="2"/>
+    <circle cx="200" cy="520" r="1.5"/>
+    <circle cx="820" cy="520" r="1.5"/>
+  </g>
+</svg>

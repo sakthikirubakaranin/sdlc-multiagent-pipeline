@@ -1,0 +1,78 @@
+# ─── Environment ─────────────────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ─── Python ──────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+.venv/
+venv/
+env/
+pip-log.txt
+
+# ─── Database ────────────────────────────────────────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+
+# ─── Outputs (generated artifacts — large files) ─────────────────────────────
+outputs/requirements/*.json
+outputs/architecture/
+outputs/code/
+outputs/tests/
+outputs/docs/
+outputs/deployments/
+!outputs/**/.gitkeep
+
+# ─── IDE ─────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# ─── Testing ─────────────────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# ─── Whisper model cache ──────────────────────────────────────────────────────
+~/.cache/whisper/
+
+# ─── Logs ─────────────────────────────────────────────────────────────────────
+*.log
+logs/
+
+# ─── Credentials (NEVER commit) ─────────────────────────────────────────────
+.credentials.json
+config/secrets.py
+
+# ─── Terraform ───────────────────────────────────────────────────────────────
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+
+# ─── Desktop app (Electron build artifacts) ───────────────────────────────────
+desktop-app/node_modules/
+desktop-app/dist/
+desktop-app/.webpack/
+
+# ─── All outputs (large generated files) ─────────────────────────────────────
+outputs/
+!outputs/.gitkeep
+
+# ─── macOS ───────────────────────────────────────────────────────────────────
+.DS_Store
+**/.DS_Store
+__MACOSX/
